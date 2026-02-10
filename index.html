@@ -53,26 +53,27 @@
           <div class="is-size-5 publication-authors">
             <!-- Paper authors -->
             <span class="author-block">
-              Lequn Fu</a><sup>1,*</sup>,</span>
+              Lequn Fu</a><sup>1</sup>,</span>
               <span class="author-block">
-                Xiao Li</a><sup>1</sup>,</span>
+                Yijun Zhong</a><sup>1</sup>,</span>
                 <span class="author-block">
-                  Yibin Liu</a><sup>1</sup>,</span>
+                  Xiao Li</a><sup>1</sup>,</span>
                   <span class="author-block">
-                    Xiangan Zeng</a><sup>1</sup>,</span>
+                    Yibin Liu</a><sup>1</sup>,</span>
                     <span class="author-block">
-                      Yibo Peng</a><sup>2</sup>,</span>
+                      Xiangan Zeng</a><sup>1</sup>,</span>
                       <span class="author-block">
-                        Youjun Xiong</a><sup>2,3</sup>,</span>
+                        Yibo Peng</a><sup>2</sup>,</span>
                         <span class="author-block">
-                          Siqi Li</a><sup>1,*</sup></span>
-                        </span>
+                          Youjun Xiong</a><sup>2</sup>,</span>
+                          <span class="author-block">
+                            Siqi Li</a><sup>1,*</sup></span>
+                          </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Huazhong University of Science and Technology<br>
-            <sup>2</sup>Ubtech Robotics Corporation<br>
-            <sup>3</sup>Beijing Innovation Center of Humanoid Robotics</span>
+            <sup>2</sup>Beijing Innovation Center of Humanoid Robotics</span>
             <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Corresponding Author</small></span>
           </div>
 
@@ -101,7 +102,7 @@
                   </span> -->
 
                   <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
+                  <!-- <span class="link-block">
                     <a href="https://github.com/lequn-F/humanoid_retarget_from_fbx" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -109,7 +110,7 @@
                     </span>
                     <span>Retarget Code</span>
                   </a>
-                </span>
+                </span> -->
 
                 <!-- TODO: Update with your arXiv paper ID -->
                 <!-- <span class="link-block">
@@ -155,7 +156,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Achieving natural, robust, and energy-efficient locomotion remains a central challenge for humanoid control. While imitation learning enables robots to reproduce human-like behaviors, differences in morphology, actuation, and partial observability often limit direct motion replication. This work proposes a human-inspired reinforcement learning framework that integrates both implicit and explicit guidance. Implicit human motion priors, obtained through adversarial learning, provide style alignment with human data, while explicit biomechanical rewards encode characteristic gait principles to promote symmetry, stability, and adaptability. In addition, a history-based state estimator explicitly reconstructs base velocities from partial observations, mitigating observability gaps and enhancing robustness in real-world settings. To assess human-likeness, we introduce a tri-metric evaluation protocol covering gait symmetry, human–robot similarity, and energy efficiency. Extensive experiments demonstrate that the proposed approach produces locomotion that is not only robust and transferable across diverse terrains but also energy-efficient and recognizably human-like.          </p>
+            Humanoid robots operating in industrial environments are required to perform load-carrying transportation tasks that tightly couple locomotion and manipulation.
+However, achieving stable and robust locomotion under varying payloads and upper-body motions remains challenging due to dynamic coupling, partial observability, and modeling uncertainties.
+This paper presents a load-aware locomotion framework for industrial humanoids based on a decoupled yet coordinated loco-manipulation architecture.
+Lower-body locomotion is controlled by a reinforcement learning policy that outputs joint-space residual actions on top of kinematically derived nominal configurations.
+A kinematics-based locomotion reference conditioned on commanded velocity and base height, together with a height-conditioned joint-space offset, is introduced to improve training efficiency, contact quality, and height tracking performance.
+In addition, a history-based state estimator is employed to explicitly infer base linear velocity and base height, while a latent representation implicitly captures load- and manipulation-induced disturbances.
+The proposed framework is trained entirely in simulation and deployed on a full-size humanoid robot without additional fine-tuning.
+Both simulation and real-world experiments demonstrate faster training convergence, smoother ground contact, accurate height tracking, and stable loco-manipulation performance in industrial box-handling tasks.          </p>
         </div>
       </div>
     </div>
@@ -176,11 +184,7 @@
       <figure class="image">
         <img src="static/images/overview.jpg" alt="Paper page 1" loading="lazy">
         <figcaption class="has-text-justified is-size-6" style="margin-top: 0.75rem;">
-          Overview of the proposed framework. The method integrates human motion priors with explicit state estimation.
-          Historical proprioceptive observations are first encoded to estimate the base velocity <i>v</i><sub>b</sub> , base height
-          <i>z</i><sub>b</sub> , and a latent state <i>z</i><sub>t</sub> . These states, together with the current observation
-          <i>o</i><sub>t</sub> , are then provided to the policy network. The policy is optimized via reinforcement learning using
-          human-inspired task rewards and style rewards derived from retargeted human motion datasets.
+          Overview of the proposed load-aware humanoid loco-manipulation framework. Upper-body manipulation is generated by perception-driven kinematic control using 6D object pose estimation, while lower-body locomotion is governed by a residual reinforcement learning policy with height-conditioned offsets and history-based state estimation. Historical proprioceptive observations are encoded by a history-based state estimator to infer base velocity, base height, and a compact latent state capturing load- and manipulation-induced disturbances.
         </figcaption>
       </figure>
     </div>
