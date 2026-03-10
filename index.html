@@ -157,24 +157,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Humanoid robots operating in industrial environments are required to perform load-carrying transportation
-              tasks that tightly couple locomotion and manipulation.
-              However, achieving stable and robust locomotion under varying payloads and upper-body motions remains
-              challenging due to dynamic coupling, partial observability, and modeling uncertainties.
-              This paper presents a load-aware locomotion framework for industrial humanoids based on a decoupled yet
-              coordinated loco-manipulation architecture.
-              Lower-body locomotion is controlled by a reinforcement learning policy that outputs joint-space residual
-              actions on top of kinematically derived nominal configurations.
-              A kinematics-based locomotion reference conditioned on commanded velocity and base height, together with a
-              height-conditioned joint-space offset, is introduced to improve training efficiency, contact quality, and
-              height tracking performance.
-              In addition, a history-based state estimator is employed to explicitly infer base linear velocity and base
-              height, while a latent representation implicitly captures load- and manipulation-induced disturbances.
-              The proposed framework is trained entirely in simulation and deployed on a full-size humanoid robot
-              without additional fine-tuning.
-              Both simulation and real-world experiments demonstrate faster training convergence, smoother ground
-              contact, accurate height tracking, and stable loco-manipulation performance in industrial box-handling
-              tasks. </p>
+              Humanoid robots deployed in industrial environments are required to perform load-carrying transportation tasks that tightly couple locomotion and manipulation. However, achieving stable and robust locomotion under varying payloads and upper-body motions is challenging due to dynamic coupling and partial observability. This paper presents a load-aware locomotion framework for industrial humanoids based on a decoupled yet coordinated loco-manipulation architecture. Lower-body locomotion is controlled via a reinforcement learning policy producing residual joint actions on kinematically derived nominal configurations. A kinematics-based locomotion reference with a height-conditioned joint-space offset guides learning, while a history-based state estimator infers base linear velocity and height and encodes residual load- and manipulation-induced disturbances in a compact latent representation. The framework is trained entirely in simulation and deployed on a full-size humanoid robot without fine-tuning. Simulation and real-world experiments demonstrate faster training, accurate height tracking, and stable loco-manipulation. </p>
           </div>
         </div>
       </div>
